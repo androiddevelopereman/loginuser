@@ -13,7 +13,7 @@ import LoginPage from './modules/Users/views/LoginPage.vue';
 <template>
 
   <div id="app">
-    <LoginPage />
+    <RouterView />
   </div>
 </template>
 <style scoped>

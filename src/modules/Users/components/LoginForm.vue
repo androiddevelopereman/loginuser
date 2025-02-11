@@ -45,6 +45,7 @@ const togglePassword = () => {
 
 const handleLogin = () => {
     console.log("Logging in with", email.value, password.value);
+    localStorage.setItem("isLoggedIn", "true");
     router.push('/');
 };
 </script>
