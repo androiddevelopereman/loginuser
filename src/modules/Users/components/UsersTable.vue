@@ -481,7 +481,9 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import UserModal from "./UserModal.vue";
-import { Modal } from "bootstrap";
+import { Modal } from "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 const users = ref([]);
 const userIdToDelete = ref(null);
 const selectedUsers = ref([]);
