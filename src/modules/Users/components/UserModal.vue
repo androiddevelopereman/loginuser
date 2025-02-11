@@ -188,12 +188,7 @@
               </select>
             </div>
             <div class="d-flex justify-content-end">
-              <button
-                type="submit"
-                class="btn btn-primary"
-                :data-bs-dismiss="isPasswordMatched ? null : 'modal'"
-                id="saveButton"
-              >
+              <button type="submit" class="btn btn-primary" id="saveButton">
                 {{ isEditMode ? $t("Update") : $t("Save") }}
               </button>
             </div>

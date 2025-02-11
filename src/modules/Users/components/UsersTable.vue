@@ -14,7 +14,6 @@
       <button
         type="button"
         class="btn btn-primary mb-3 btn-add"
-        data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         @click="openModalForAdd"
       >
@@ -482,8 +481,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import UserModal from "./UserModal.vue";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { Modal } from "bootstrap";
 const users = ref([]);
 const userIdToDelete = ref(null);
 const selectedUsers = ref([]);
@@ -504,8 +502,10 @@ const user = ref({
 });
 const isEditMode = ref(false);
 const totalPages = computed(() => Math.ceil(users.value.length / usersPerPage));
-
+let _mutationModal = null;
 onMounted(() => {
+  _mutationModal = new Modal(document.getElementById("exampleModal"));
+
   users.value = [
     {
       id: 1,
@@ -638,8 +638,7 @@ const sortBy = (column, order) => {
 const openModalForAdd = () => {
   resetForm();
   isEditMode.value = false;
-  const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-  modal.show();
+  _mutationModal.show();
 };
 
 const paginatedUsers = computed(() => {
@@ -672,6 +671,8 @@ const addUser = (formData) => {
   } else {
     users.value.push({ id: Date.now(), ...formData });
   }
+
+  _mutationModal.hide();
 };
 const viewDetails = (user) => {
   selectedUser.value = user;
