@@ -722,7 +722,5 @@ const resetForm = () => {
     userType: "",
     roles: "",
   };
-  password.value = "";
-  confirmPassword.value = "";
 };
 </script>
